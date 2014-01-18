@@ -1,0 +1,51 @@
+<h1>Characteristics</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Age</th>
+      <th>Location</th>
+      <th>Zip Code</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @characteristics.each do |characteristic| %>
+    <tr>
+      <td><%= characteristic.age %></td>
+      <td><%= characteristic.location %></td>
+      <td><%= characteristic.zip_code %></td>
+      <td><%= link_to 'Show', characteristic_url(characteristic) %></td>
+      <td><%= link_to 'Edit', edit_characteristic_url(characteristic) %></td>
+      <td><%= link_to 'Destroy', characteristic_url(characteristic), method: 'delete', data: { confirm: "Do you really want to delete this characteristic?" } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h1>New Characteristic</h1>
+
+<%= form_tag(characteristics_url, method: 'post') do %>
+  <div>
+    <%= label_tag :age %><br />
+    <%= text_field_tag :age %>
+  </div>
+
+  <div>
+    <%= label_tag :location %><br />
+    <%= text_field_tag :location %>
+  </div>
+
+    <div>
+    <%= label_tag :zip_code %><br />
+    <%= number_field_tag :zip_code %>
+  </div>
+
+  <div>
+    <%= submit_tag "Create Characteristic" %>
+  </div>
+<% end %>
+

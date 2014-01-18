@@ -1,0 +1,22 @@
+<h1>Editing Song #<%= @song.id %></h1>
+
+<%= form_tag(song_url(@song), method: 'patch') do %>
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name, @song.name %>
+  </div>
+
+  <div>
+    <%= label_tag :artist %><br />
+    <%= text_field_tag :artist, @song.artist %>
+  </div>
+
+  <div>
+    <%= label_tag :link %><br />
+    <%= text_field_tag :link, @song.link %>
+  </div>
+
+  <div>
+    <%= submit_tag "Update Song" %>
+  </div>
+<% end %>

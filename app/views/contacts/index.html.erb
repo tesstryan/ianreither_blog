@@ -1,0 +1,51 @@
+<h1>Contacts</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Twitter</th>
+      <th>Linkedin</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @contacts.each do |contact| %>
+    <tr>
+      <td><%= contact.email %></td>
+      <td><%= contact.twitter %></td>
+      <td><%= contact.linkedin %></td>
+      <td><%= link_to 'Show', contact_url(contact) %></td>
+      <td><%= link_to 'Edit', edit_contact_url(contact) %></td>
+      <td><%= link_to 'Destroy', contact_url(contact), method: 'delete', data: { confirm: "Do you really want to delete this contact?" } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h1>New Contact</h1>
+
+<%= form_tag(contacts_url, method: 'post') do %>
+  <div>
+    <%= label_tag :email %><br />
+    <%= text_field_tag :email %>
+  </div>
+
+  <div>
+    <%= label_tag :twitter %><br />
+    <%= text_field_tag :twitter %>
+  </div>
+
+  <div>
+    <%= label_tag :linkedin %><br />
+    <%= text_field_tag :linkedin %>
+  </div>
+
+  <div>
+    <%= submit_tag "Create Contact" %>
+  </div>
+<% end %>
+

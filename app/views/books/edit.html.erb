@@ -1,0 +1,27 @@
+<h1>Editing Book #<%= @book.id %></h1>
+
+<%= form_tag(book_url(@book), method: 'patch') do %>
+  <div>
+    <%= label_tag :title %><br />
+    <%= text_field_tag :title, @book.title %>
+  </div>
+
+  <div>
+    <%= label_tag :author %><br />
+    <%= text_field_tag :author, @book.author %>
+  </div>
+
+  <div>
+    <%= label_tag :image %><br />
+    <%= text_field_tag :image, @book.image %>
+  </div>
+
+  <div>
+    <%= label_tag :link %><br />
+    <%= text_field_tag :link, @book.link %>
+  </div>
+
+  <div>
+    <%= submit_tag "Update Book" %>
+  </div>
+<% end %>

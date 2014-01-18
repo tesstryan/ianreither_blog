@@ -1,0 +1,53 @@
+<h1>Movies</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Image</th>
+      <th>Link</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @movies.each do |movie| %>
+    <tr>
+      <td><%= movie.title %></td>
+      <td><%= image_tag(movie.image) %></td>
+      <td><%= movie.link %></td>
+      <td><%= link_to 'Edit', edit_movie_url(movie) %></td>
+      <td><%= link_to 'Destroy', movie_url(movie), method: 'delete', data: { confirm: "Do you really want to delete this movie?" } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<div class="col-md-4">
+
+<h1>New Movie</h1>
+
+<%= form_tag(movies_url, method: 'post') do %>
+  <div class="form-group">
+    <%= label_tag :title %><br />
+    <%= text_field_tag :title, nil, :placeholder => "Movie Title", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :image %><br />
+    <%= text_field_tag :image, nil, :placeholder => "Movie Image", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :link %><br />
+    <%= text_field_tag :link, nil, :placeholder => "Link to movie", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit_tag "Create Movie", :class => "btn btn-default" %>
+  </div>
+<% end %>
+
+</div>
+

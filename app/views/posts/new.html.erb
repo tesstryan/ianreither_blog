@@ -1,0 +1,31 @@
+
+<div class="col-md-6">
+  <h1>New Post</h1>
+<%= form_tag(posts_url, method: 'post') do %>
+<form role="form">
+  <div class="form-group">
+    
+    <%= label_tag :header %><br />
+    <%= text_field_tag :header, nil, :placeholder => "Blog Header", :class => "form-control"  %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :sub_header %><br />
+    <%= text_field_tag :sub_header, nil, :placeholder => "If you have a sub-header, put it here. If not, leave it blank.", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :date %><br />
+    <%= text_field_tag :date, nil, :placeholder => "Month, Day Year", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :content %><br />
+    <%= text_area_tag :content, nil, :placeholder => "Write your words of wisdom here...", :class => "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= submit_tag "Create Post", :class => "btn btn-default" %>
+  </div>
+<% end %>
+</div>

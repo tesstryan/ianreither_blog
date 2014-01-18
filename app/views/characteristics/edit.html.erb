@@ -1,0 +1,22 @@
+<h1>Editing Characteristic #<%= @characteristic.id %></h1>
+
+<%= form_tag(characteristic_url(@characteristic), method: 'patch') do %>
+  <div>
+    <%= label_tag :age %><br />
+    <%= text_field_tag :age, @characteristic.age %>
+  </div>
+
+  <div>
+    <%= label_tag :location %><br />
+    <%= text_field_tag :location, @characteristic.location %>
+  </div>
+
+    <div>
+    <%= label_tag :zip_code %><br />
+    <%= text_field_tag :zip_code, @characteristic.zip_code %>
+  </div>
+
+  <div>
+    <%= submit_tag "Update Characteristic" %>
+  </div>
+<% end %>

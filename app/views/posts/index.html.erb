@@ -1,0 +1,96 @@
+<body>
+
+    <header>
+      <div class="col-lg-12 header_image">
+        <%= image_tag("IanReither.png", :alt => "Ian Reither") %>
+      </div>
+    </header>
+
+      <div class="row">
+        <div class="col-xs-12 col-md-3">
+          
+          <ul class="about_ian">
+
+            <li><b>Age:</b> <%= @characteristic.age %></li>
+
+            <li><b>Location:</b> <%= @characteristic.location %></li>
+
+            <li><b>Most Recent Tweet:</b>
+               <%= @user.twitter.user_timeline.first.full_text %> 
+            </li>
+            
+            <li><b>Last song played:</b> <%= @song.name %> <em> by <%= @song.artist %> </em></li>
+            
+            <li><b>Currently Reading:</b> <%= @book.title %> <em> by <%= @book.author %> </em> </li>
+
+            <li><b>Just watched:</b> <%= @movie.title %> </li>
+           </ul>
+
+           <ul class="about_ian">
+            <li>
+                <div class="quote"><i class="fa fa-quote-left icon_color"></i> The first step is to establish that something is possible; then probability will occur. <i class="fa fa-quote-right icon_color"></i></div>
+
+                <div class="arrow-down"></div>
+                <div class="author">Elon Musk</div>
+            </li>
+          </ul>
+          
+          <ul class="about_ian">
+            <h3><b>Contact</b></h3>
+            <li>Email: <%= mail_to "ianreither@gmail.com", "ianreither@gmail.com" %></li>
+            <li>Twitter: <a href="https://twitter.com/ireither"><%= @contact.twitter %></a></li>
+            <li>LinkedIn: <a href="<%= @contact.linkedin %>">Ian Reither</a></li>
+           <!--  <br>
+            <i class="fa fa-bookmark fa-3x icon_symbol"></i>  -->
+            </ul>
+
+            <ul class="edit_site">
+                <% if session[:user_id].present? %>
+                  <li class="edit"><b>Edit the Site</b></li>
+                  <li><%= link_to 'Add a New Post', new_post_url %></li>
+                  <li><%= link_to 'Add a New Book', books_url %></li>
+                  <li><%= link_to 'Add a New Movie', movies_url %></li>
+                  <li><%= link_to 'Add a New Song', songs_url %></li>
+                  <li><%= link_to 'Change Age or Location', characteristics_url %></li>
+
+                <% end %>
+            </ul>
+
+        </div>
+
+        <div class="col-md-1">
+        </div>
+
+          <div class="col-xs-12 col-md-7 blog_posts">
+            <article>
+              <% @posts.order(:id).reverse.each do |post| %>
+                <h2><%= post.header %>  </h2>
+                <% sub_header = post.sub_header %>
+                <% if sub_header.present? %>
+                <h3><%= post.sub_header %></h3>
+                <% end %>
+                <h6 class="date"><%= post.date %></h6>
+                <p><%= simple_format post.content %></p>
+                <% if session[:user_id].present? %> 
+                  <%= link_to 'Show', post_url(post) %> |
+                  <%= link_to 'Edit', edit_post_url(post) %> |
+                  <%= link_to 'Destroy', post_url(post), method: 'delete', data: { confirm: "Do you really want to delete this post?" } %>
+                <% end %>
+                <% end %>  
+            </article>
+              
+        </div>
+    
+
+      <footer>
+        <div class="footer">
+          
+
+        </div>
+      </footer>
+
+    </div>
+
+</body>
+</html>
+

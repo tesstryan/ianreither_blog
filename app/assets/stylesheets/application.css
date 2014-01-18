@@ -1,0 +1,168 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+
+ *= require_self
+ *= require_tree .
+
+ */
+
+
+* {
+  background-repeat: no-repeat;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/*HEADER STYLE*/
+
+header {
+  max-width: 960px;
+  margin-bottom: 20px;
+  margin-top: 60px;
+  margin-left: 2%
+}
+
+header img {
+  margin-bottom: 15px;
+  width: 600px;
+}
+
+
+/*ABOUT IAN SECTION STYLE*/
+
+.about_ian {
+  margin-top: 25px;
+}
+
+.about_ian li {
+  font-size: 14px;
+  line-height: 22px;
+
+}
+
+.about_ian h3 {
+  font-size: 14px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.edit_site li {
+  font-size: 16px;
+}
+
+.edit {
+  color: red;
+}
+
+/*BLOG POST STYLE*/
+
+.date {
+  color: rgb(140,140,140);
+  font-style: italic;
+  font-size: 15px;
+  margin-top: 10px;
+  margin-bottom: -15px;
+}
+
+.blog_posts h2 {
+  font-size: 30px;
+  font-family: 'Open Sans', sans-serif;
+}
+.blog_posts h3 {
+  margin-top: 0;
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.blog_posts h6 {
+  font-family: 'Open Sans', sans-serif;
+}
+.blog_posts p {
+  font-size: 15px;
+  padding-bottom: 20px;
+  line-height: 22px;
+}
+
+/*BLOG POST STYLE END*/
+
+li {
+  text-decoration: none;
+  list-style-type: none;
+}
+
+/*QUOTE STYLE*/
+.quote {
+  background-color: rgb(246,246,246);
+  border-radius: 10px 10px;
+  padding: 18px;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid rgb(246,246,246);
+  margin-left: 20%;
+}
+
+
+.author {
+  margin-left: 17%;
+  margin-bottom: 20px;
+  font-size: 14px;
+  
+}
+
+.icon_color {
+  color: rgb(140,140,140);
+}
+
+/*END QUOTE STYLE*/
+
+.footer {
+  background: white;
+  margin: 20px;
+}
+
+
+@media screen and (max-width: 800px) {
+
+  header img {
+    margin-bottom: -15px;
+    width: 400px;
+    display: center;
+  }
+ 
+
+}
+
+@media screen and (max-width: 400px) {
+
+    header img {
+      margin-bottom: -15px;
+      width: 320px;
+      display: center;
+    }
+
+}
+
+@media screen and (max-width: 340px) {
+
+    header img {
+      margin-bottom: -15px;
+      width: 280px;
+      display: center;
+    }
+
+}
+
