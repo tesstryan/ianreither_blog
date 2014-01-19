@@ -138,11 +138,17 @@ li {
 @media screen and (max-width: 800px) {
 
   header img {
-    margin-bottom: -15px;
-    width: 400px;
+    width: 600px;
     display: center;
   }
  
+
+ @media screen and (max-width: 600px) {
+
+  header img {
+    width: 400px;
+    display: center;
+  }
 
 }
 
@@ -154,6 +160,41 @@ li {
       display: center;
     }
 
+    .quote {
+      font-size: 13px;
+    }
+
+    .author {
+      font-size: 12px;
+    }
+
+    .about_ian li {
+      font-size: 12px;
+    }
+
+    .about_ian h3 {
+      font-size: 12px;
+    }
+
+    .edit_site li {
+      font-size: 18px;
+    }
+
+    .date {
+      font-size: 12px;
+    }
+
+    .blog_posts h2 {
+        font-size: 22px;
+    }
+
+    .blog_posts h3 {
+        font-size: 16px;
+    }
+
+    .blog_posts p {
+        font-size: 12px;
+    }
 }
 
 @media screen and (max-width: 340px) {
@@ -162,6 +203,42 @@ li {
       margin-bottom: -15px;
       width: 280px;
       display: center;
+    }
+
+    .quote {
+      font-size: 12px;
+    }
+
+    .author {
+      font-size: 11px;
+    }    
+
+    .about_ian li {
+      font-size: 11px;
+    }
+
+    .about_ian h3 {
+      font-size: 11px;
+    }
+
+    .edit_site li {
+      font-size: 16px;
+    }
+
+    .date {
+      font-size: 11px;
+    }
+
+    .blog_posts h2 {
+        font-size: 20px;
+    }
+
+    .blog_posts h3 {
+        font-size: 14px;
+    }
+
+    .blog_posts p {
+        font-size: 11px;
     }
 
 }
