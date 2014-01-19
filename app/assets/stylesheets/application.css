@@ -103,7 +103,7 @@ li {
   border-radius: 10px 10px;
   padding: 18px;
   margin-top: 20px;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .arrow-down {
@@ -143,10 +143,18 @@ li {
   }
  
 
- @media screen and (max-width: 600px) {
+ @media screen and (max-width: 650px) {
 
   header img {
     width: 400px;
+    display: center;
+  }
+}
+
+ @media screen and (max-width: 525px) {
+
+  header img {
+    width: 350px;
     display: center;
   }
 
@@ -201,7 +209,7 @@ li {
 
     header img {
       margin-bottom: -15px;
-      width: 280px;
+      width: 260px;
       display: center;
     }
 
