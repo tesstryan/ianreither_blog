@@ -133,7 +133,7 @@ li {
 
 .footer {
   background: white;
-  margin: 20px;
+  bottom: 0px;
 }
 
 /*RESPONSIVENESS*/
