@@ -5,8 +5,6 @@
     <tr>
       <th>Title</th>
       <th>Author</th>
-      <th>Image</th>
-      <th>Link</th>
       <th></th>
       <th></th>
     </tr>
@@ -17,8 +15,6 @@
     <tr>
       <td><%= book.title %></td>
       <td><%= book.author %></td>
-      <td><%= image_tag(book.image, :class => "book_image") %></td>
-      <td><%= link_to(book.link) %></td>
       <td><%= link_to 'Edit', edit_book_url(book) %></td>
       <td><%= link_to 'Delete', book_url(book), method: 'delete', data: { confirm: "Do you really want to delete this book?" } %></td>
     </tr>
