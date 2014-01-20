@@ -1,5 +1,22 @@
 IanreitherBlog::Application.routes.draw do
   
+  # Routes for the Article resource:
+  # CREATE
+  get '/articles/new', controller: 'articles', action: 'new', as: 'new_article'
+  post '/articles', controller: 'articles', action: 'create', as: 'articles'
+
+  # READ
+  get '/articles', controller: 'articles', action: 'index'
+  get '/articles/:id', controller: 'articles', action: 'show', as: 'article'
+
+  # UPDATE
+  get '/articles/:id/edit', controller: 'articles', action: 'edit', as: 'edit_article'
+  patch '/articles/:id', controller: 'articles', action: 'update'
+
+  # DELETE
+  delete '/articles/:id', controller: 'articles', action: 'destroy'
+  #------------------------------
+
   root to: 'posts#index'
 
   #Routes for Signing In and Out: 
