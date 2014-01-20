@@ -26,3 +26,21 @@
   </tbody>
 </table>
 
+
+<h1>New Article</h1>
+
+<%= form_tag(articles_url, method: 'post') do %>
+  <div>
+    <%= label_tag :name %><br />
+    <%= text_field_tag :name %>
+  </div>
+
+  <div>
+    <%= label_tag :author %><br />
+    <%= text_field_tag :author %>
+  </div>
+
+  <div>
+    <%= submit_tag "Create Article" %>
+  </div>
+<% end %>
