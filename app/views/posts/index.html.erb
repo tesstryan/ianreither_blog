@@ -16,7 +16,9 @@
             <li><b>Location:</b> <%= @characteristic.location %></li>
 
             <li><b>Most Recent Tweet:</b>
-                <%= @user.twitter.user_timeline.first.full_text %> 
+                <% @tweet = @user.twitter.user_timeline.first.full_text %>
+                <% ian_tweet = @tweet.dup %> 
+                <%= auto_link(ian_tweet).html_safe %>
                <!--  RT #USVconversation Tackling the Question of Valuation for Seed-Stage Startups - AlleyWatch <a href="http://bit.ly/1cCd4hN">http://bit.ly/1cCd4hN</a> --> 
             </li>
 
