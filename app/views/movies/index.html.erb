@@ -13,8 +13,10 @@
   <% @movies.each do |movie| %>
     <tr>
       <td><%= movie.title %></td>
-      <td><%= link_to 'Edit', edit_movie_url(movie) %></td>
-      <td><%= link_to 'Destroy', movie_url(movie), method: 'delete', data: { confirm: "Do you really want to delete this movie?" } %></td>
+      <% if session[:user_id].present? %>
+        <td><%= link_to 'Edit', edit_movie_url(movie) %></td>
+        <td><%= link_to 'Destroy', movie_url(movie), method: 'delete', data: { confirm: "Do you really want to delete this movie?" } %></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>

@@ -1,17 +1,21 @@
-<h1>Editing Article #<%= @article.id %></h1>
+<% if session[:user_id].present? %>
 
-<%= form_tag(article_url(@article), method: 'patch') do %>
-  <div>
-    <%= label_tag :name %><br />
-    <%= text_field_tag :name, @article.name %>
-  </div>
+  <h1>Editing Article #<%= @article.id %></h1>
 
-  <div>
-    <%= label_tag :author %><br />
-    <%= text_field_tag :author, @article.author %>
-  </div>
+  <%= form_tag(article_url(@article), method: 'patch') do %>
+    <div>
+      <%= label_tag :name %><br />
+      <%= text_field_tag :name, @article.name %>
+    </div>
 
-  <div>
-    <%= submit_tag "Update Article" %>
-  </div>
+    <div>
+      <%= label_tag :author %><br />
+      <%= text_field_tag :author, @article.author %>
+    </div>
+
+    <div>
+      <%= submit_tag "Update Article" %>
+    </div>
+  <% end %>
+
 <% end %>

@@ -1,4 +1,4 @@
-
+<% if session[:user_id].present? %>
 
 <h1>Editing User #<%= @user.id %></h1>
 
@@ -22,3 +22,5 @@
     <%= submit_tag "Update User" %>
   </div>
 <% end %>
+
+<%= end %>

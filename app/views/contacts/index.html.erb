@@ -18,9 +18,11 @@
       <td><%= contact.email %></td>
       <td><%= contact.twitter %></td>
       <td><%= contact.linkedin %></td>
-      <td><%= link_to 'Show', contact_url(contact) %></td>
-      <td><%= link_to 'Edit', edit_contact_url(contact) %></td>
-      <td><%= link_to 'Destroy', contact_url(contact), method: 'delete', data: { confirm: "Do you really want to delete this contact?" } %></td>
+      <% if session[:user_id].present? %>
+        <td><%= link_to 'Show', contact_url(contact) %></td>
+        <td><%= link_to 'Edit', edit_contact_url(contact) %></td>
+        <td><%= link_to 'Destroy', contact_url(contact), method: 'delete', data: { confirm: "Do you really want to delete this contact?" } %></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>

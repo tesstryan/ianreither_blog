@@ -1,18 +1,22 @@
-<h1>Editing Song #<%= @song.id %></h1>
+<% if session[:user_id].present? %>
 
-<%= form_tag(song_url(@song), method: 'patch') do %>
-  <div>
-    <%= label_tag :name %><br />
-    <%= text_field_tag :name, @song.name %>
-  </div>
+  <h1>Editing Song #<%= @song.id %></h1>
 
-  <div>
-    <%= label_tag :artist %><br />
-    <%= text_field_tag :artist, @song.artist %>
-  </div>
+  <%= form_tag(song_url(@song), method: 'patch') do %>
+    <div>
+      <%= label_tag :name %><br />
+      <%= text_field_tag :name, @song.name %>
+    </div>
+
+    <div>
+      <%= label_tag :artist %><br />
+      <%= text_field_tag :artist, @song.artist %>
+    </div>
 
 
-  <div>
-    <%= submit_tag "Update Song" %>
-  </div>
+    <div>
+      <%= submit_tag "Update Song" %>
+    </div>
+  <% end %>
+
 <% end %>

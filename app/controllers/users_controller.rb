@@ -18,7 +18,8 @@ class UsersController < ApplicationController
     @user.password = params[:password]
     @user.password_confirmation = params[:password_confirmation]
 
-    if @user.save
+    if @user.email == 'ianreither@gmail.com'
+      @user.save
       redirect_to users_url, notice: "User created successfully."
     else
       render 'new'

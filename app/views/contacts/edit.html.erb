@@ -1,22 +1,26 @@
-<h1>Editing Contact #<%= @contact.id %></h1>
+<% if session[:user_id].present? %>
 
-<%= form_tag(contact_url(@contact), method: 'patch') do %>
-  <div>
-    <%= label_tag :email %><br />
-    <%= text_field_tag :email, @contact.email %>
-  </div>
+  <h1>Editing Contact #<%= @contact.id %></h1>
 
-  <div>
-    <%= label_tag :twitter %><br />
-    <%= text_field_tag :twitter, @contact.twitter %>
-  </div>
+  <%= form_tag(contact_url(@contact), method: 'patch') do %>
+    <div>
+      <%= label_tag :email %><br />
+      <%= text_field_tag :email, @contact.email %>
+    </div>
 
-  <div>
-    <%= label_tag :linkedin %><br />
-    <%= text_field_tag :linkedin, @contact.linkedin %>
-  </div>
+    <div>
+      <%= label_tag :twitter %><br />
+      <%= text_field_tag :twitter, @contact.twitter %>
+    </div>
 
-  <div>
-    <%= submit_tag "Update Contact" %>
-  </div>
+    <div>
+      <%= label_tag :linkedin %><br />
+      <%= text_field_tag :linkedin, @contact.linkedin %>
+    </div>
+
+    <div>
+      <%= submit_tag "Update Contact" %>
+    </div>
+  <% end %>
+
 <% end %>

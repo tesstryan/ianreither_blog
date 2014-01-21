@@ -1,17 +1,21 @@
-<h1>Editing Quote #<%= @quote.id %></h1>
+<% if session[:user_id].present? %>
 
-<%= form_tag(quote_url(@quote), method: 'patch') do %>
-  <div>
-    <%= label_tag :content %><br />
-    <%= text_field_tag :content, @quote.content %>
-  </div>
+  <h1>Editing Quote #<%= @quote.id %></h1>
 
-  <div>
-    <%= label_tag :author %><br />
-    <%= text_field_tag :author, @quote.author %>
-  </div>
+  <%= form_tag(quote_url(@quote), method: 'patch') do %>
+    <div>
+      <%= label_tag :content %><br />
+      <%= text_field_tag :content, @quote.content %>
+    </div>
 
-  <div>
-    <%= submit_tag "Update Quote" %>
-  </div>
+    <div>
+      <%= label_tag :author %><br />
+      <%= text_field_tag :author, @quote.author %>
+    </div>
+
+    <div>
+      <%= submit_tag "Update Quote" %>
+    </div>
+  <% end %>
+
 <% end %>

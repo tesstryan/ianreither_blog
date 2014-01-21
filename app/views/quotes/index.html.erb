@@ -15,33 +15,39 @@
     <tr>
       <td><%= quote.content %></td>
       <td><%= quote.author %></td>
-      <td><%= link_to 'Edit', edit_quote_url(quote) %></td>
-      <td><%= link_to 'Destroy', quote_url(quote), method: 'delete', data: { confirm: "Do you really want to delete this quote?" } %></td>
+      <% if session[:user_id].present? %>
+        <td><%= link_to 'Edit', edit_quote_url(quote) %></td>
+        <td><%= link_to 'Destroy', quote_url(quote), method: 'delete', data: { confirm: "Do you really want to delete this quote?" } %></td>
+        <% end %>
     </tr>
   <% end %>
   </tbody>
 </table>
 
 
-<div class="col-md-4">
-<h1>New Quote</h1>
+<% if session[:user_id].present? %>
 
-<%= form_tag(quotes_url, method: 'post') do %>
+  <div class="col-md-4">
+  <h1>New Quote</h1>
+
+  <%= form_tag(quotes_url, method: 'post') do %>
 
 
-  <div class="form-group">
-    <%= label_tag :content %><br />
-    <%= text_field_tag :content, nil, :placeholder => "Insert impressive quote here...", :class => "form-control" %>
+    <div class="form-group">
+      <%= label_tag :content %><br />
+      <%= text_field_tag :content, nil, :placeholder => "Insert impressive quote here...", :class => "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= label_tag :author %><br />
+      <%= text_field_tag :author, nil, :placeholder => "Who said it?", :class => "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= submit_tag "Add Quote!" %>
+    </div>
+  <% end %>
+
   </div>
 
-  <div class="form-group">
-    <%= label_tag :author %><br />
-    <%= text_field_tag :author, nil, :placeholder => "Who said it?", :class => "form-control" %>
-  </div>
-
-  <div class="form-group">
-    <%= submit_tag "Add Quote!" %>
-  </div>
 <% end %>
-
-</div>

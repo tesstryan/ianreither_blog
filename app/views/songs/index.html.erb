@@ -17,31 +17,35 @@
     <tr>
       <td><%= song.name %></td>
       <td><%= song.artist %></td>
-      <td><%= link_to 'Edit', edit_song_url(song) %></td>
-      <td><%= link_to 'Destroy', song_url(song), method: 'delete', data: { confirm: "Do you really want to delete this song?" } %></td>
+      <% if session[:user_id].present? %>
+        <td><%= link_to 'Edit', edit_song_url(song) %></td>
+        <td><%= link_to 'Destroy', song_url(song), method: 'delete', data: { confirm: "Do you really want to delete this song?" } %></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
 </table>
 
+<% if session[:user_id].present? %>
+  <div class="col-md-4">
+    <h1>New Song</h1>
 
-<div class="col-md-4">
-  <h1>New Song</h1>
+    <%= form_tag(songs_url, method: 'post') do %>
+      <div class="form-group">
+        <%= label_tag :name %><br />
+        <%= text_field_tag :name, nil, :placeholder => "Name", :class => "form-control"   %>
+      </div>
 
-  <%= form_tag(songs_url, method: 'post') do %>
-    <div class="form-group">
-      <%= label_tag :name %><br />
-      <%= text_field_tag :name, nil, :placeholder => "Name", :class => "form-control"   %>
-    </div>
+      <div class="form-group">
+        <%= label_tag :artist %><br />
+        <%= text_field_tag :artist, nil, :placeholder => "Artist", :class => "form-control"   %>
+      </div>
 
-    <div class="form-group">
-      <%= label_tag :artist %><br />
-      <%= text_field_tag :artist, nil, :placeholder => "Artist", :class => "form-control"   %>
-    </div>
+      <div class="form-group">
+        <%= submit_tag "Create Song", :class => "btn btn-default" %>
+      </div>
+    <% end %>
+  </div>
 
-    <div class="form-group">
-      <%= submit_tag "Create Song", :class => "btn btn-default" %>
-    </div>
-  <% end %>
-</div>
+<% end %>
 

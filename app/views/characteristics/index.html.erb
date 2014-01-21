@@ -18,9 +18,10 @@
       <td><%= characteristic.age %></td>
       <td><%= characteristic.location %></td>
       <td><%= characteristic.zip_code %></td>
-      <td><%= link_to 'Show', characteristic_url(characteristic) %></td>
-      <td><%= link_to 'Edit', edit_characteristic_url(characteristic) %></td>
-      <td><%= link_to 'Destroy', characteristic_url(characteristic), method: 'delete', data: { confirm: "Do you really want to delete this characteristic?" } %></td>
+      <% if session[:user_id].present? %>
+        <td><%= link_to 'Edit', edit_characteristic_url(characteristic) %></td>
+        <td><%= link_to 'Destroy', characteristic_url(characteristic), method: 'delete', data: { confirm: "Do you really want to delete this characteristic?" } %></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>

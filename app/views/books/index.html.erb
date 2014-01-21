@@ -15,8 +15,10 @@
     <tr>
       <td><%= book.title %></td>
       <td><%= book.author %></td>
-      <td><%= link_to 'Edit', edit_book_url(book) %></td>
-      <td><%= link_to 'Delete', book_url(book), method: 'delete', data: { confirm: "Do you really want to delete this book?" } %></td>
+      <% if session[:user_id].present? %>
+        <td><%= link_to 'Edit', edit_book_url(book) %></td>
+        <td><%= link_to 'Delete', book_url(book), method: 'delete', data: { confirm: "Do you really want to delete this book?" } %></td>
+      <% end %>
     </tr>
   <% end %>
   </tbody>
