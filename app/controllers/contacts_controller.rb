@@ -16,6 +16,7 @@ class ContactsController < ApplicationController
     @contact.email = params[:email]
     @contact.twitter = params[:twitter]
     @contact.linkedin = params[:linkedin]
+    @contact.angel_list = params[:angel_list]
 
     if @contact.save
       redirect_to contacts_url, notice: "Contact created successfully."
@@ -33,6 +34,7 @@ class ContactsController < ApplicationController
     @contact.email = params[:email]
     @contact.twitter = params[:twitter]
     @contact.linkedin = params[:linkedin]
+    @contact.angel_list = params[:angel_list]
 
     if @contact.save
       redirect_to contacts_url, notice: "Contact updated successfully."
