@@ -13,7 +13,7 @@
           
             <li><b>Age:</b> <%= @characteristic.age %></li>
 
-            <li><b>Location:</b> <%= @characteristic.location %></li>
+            <li><b>Current Location:</b> <%= @characteristic.location %></li>
 
             <li><b>Most Recent Tweet:</b>
                 <% @tweet = @user.twitter.user_timeline.first.full_text %>
