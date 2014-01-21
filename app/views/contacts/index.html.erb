@@ -26,26 +26,29 @@
   </tbody>
 </table>
 
+<div class="col-md-4">
+
 <h1>New Contact</h1>
 
 <%= form_tag(contacts_url, method: 'post') do %>
-  <div>
+  <div class="form-group">
     <%= label_tag :email %><br />
     <%= text_field_tag :email %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= label_tag :twitter %><br />
     <%= text_field_tag :twitter %>
   </div>
 
-  <div>
+  <div class="form-group">
     <%= label_tag :linkedin %><br />
     <%= text_field_tag :linkedin %>
   </div>
 
-  <div>
-    <%= submit_tag "Create Contact" %>
+  <div class="form-group">
+    <%= submit_tag "Create Contact", :class => "btn-btn-default" %>
   </div>
 <% end %>
+</div>
 

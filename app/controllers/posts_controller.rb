@@ -10,6 +10,7 @@ class PostsController < ApplicationController
     @characteristic = Characteristic.last
     @contact = Contact.last
     @article = Article.last
+    @quote = Quote.last
   end
 
   def show

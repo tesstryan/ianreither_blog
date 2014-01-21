@@ -1,5 +1,22 @@
 IanreitherBlog::Application.routes.draw do
   
+  # Routes for the Quote resource:
+  # CREATE
+  get '/quotes/new', controller: 'quotes', action: 'new', as: 'new_quote'
+  post '/quotes', controller: 'quotes', action: 'create', as: 'quotes'
+
+  # READ
+  get '/quotes', controller: 'quotes', action: 'index'
+  get '/quotes/:id', controller: 'quotes', action: 'show', as: 'quote'
+
+  # UPDATE
+  get '/quotes/:id/edit', controller: 'quotes', action: 'edit', as: 'edit_quote'
+  patch '/quotes/:id', controller: 'quotes', action: 'update'
+
+  # DELETE
+  delete '/quotes/:id', controller: 'quotes', action: 'destroy'
+  #------------------------------
+
   # Routes for the Article resource:
   # CREATE
   get '/articles/new', controller: 'articles', action: 'new', as: 'new_article'
