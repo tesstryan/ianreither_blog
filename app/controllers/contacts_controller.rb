@@ -36,7 +36,7 @@ class ContactsController < ApplicationController
     @contact.twitter = params[:twitter]
     @contact.linkedin = params[:linkedin]
     @contact.angel_list = params[:angel_list]
-    @contact.quora = params[:angel_list]
+    @contact.quora = params[:quora]
 
     if @contact.save
       redirect_to contacts_url, notice: "Contact updated successfully."
