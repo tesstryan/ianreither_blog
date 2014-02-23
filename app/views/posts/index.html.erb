@@ -13,13 +13,18 @@
           
             <li><b>Age:</b> <%= @characteristic.age %></li>
 
-            <li><b>Current Location:</b> <%= @characteristic.location %></li>
+            <li><b>Current Location:</b> <%= @characteristic.city %>, <%= @characteristic.state %></li>
+
+
+                  <% characteristic_temp = Characteristic.last %>
+                  <% @current_temp = characteristic_temp.get_current_temperature("#{@characteristic.city}", "#{@characteristic.state}") %>
+            <li><b>Current <%= @characteristic.city %> Temp:</b> <%= @current_temp %> &deg;F</li>
+     
 
             <li><b>Most Recent Tweet:</b>
                 <% @tweet = @user.twitter.user_timeline.first.full_text %>
                 <% ian_tweet = @tweet.dup %> 
-                <%= auto_link(ian_tweet).html_safe %>
-               <!--  RT #USVconversation Tackling the Question of Valuation for Seed-Stage Startups - AlleyWatch <a href="http://bit.ly/1cCd4hN">http://bit.ly/1cCd4hN</a> --> 
+                <%= auto_link(ian_tweet).html_safe %> 
             </li>
 
             <li><b>Currently Reading:</b> <%= @book.title %> <em> by <%= @book.author %> </em> </li>
