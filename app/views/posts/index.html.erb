@@ -11,14 +11,14 @@
           
           <ul class="about_ian">
           
-            <li><b>Age:</b> 25 </li>
+            <li><b>Age:</b> <%= @characteristic.age %></li>
 
-            <li><b>Current Location:</b> Chicago, IL </li>
+            <li><b>Current Location:</b> <%= @characteristic.city %>, <%= @characteristic.state %></li>
 
 
                   <% characteristic_temp = Characteristic.last %>
-                  <% @current_temp = characteristic_temp.get_current_temperature("Chicago", "IL") %>
-            <li><b>Current Chicago Temp:</b> <%= @current_temp %> &deg;F</li>
+                  <% @current_temp = characteristic_temp.get_current_temperature("#{@characteristic.city}", "#{@characteristic.state}") %>
+            <li><b>Current <%= @characteristic.city %> Temp:</b> <%= @current_temp %> &deg;F</li>
      
 
             <li><b>Most Recent Tweet:</b>
