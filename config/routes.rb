@@ -1,5 +1,22 @@
 IanreitherBlog::Application.routes.draw do
   
+  # Routes for the Weather resource:
+  # CREATE
+  get '/weathers/new', controller: 'weathers', action: 'new', as: 'new_weather'
+  post '/weathers', controller: 'weathers', action: 'create', as: 'weathers'
+
+  # READ
+  get '/weathers', controller: 'weathers', action: 'index'
+  get '/weathers/:id', controller: 'weathers', action: 'show', as: 'weather'
+
+  # UPDATE
+  get '/weathers/:id/edit', controller: 'weathers', action: 'edit', as: 'edit_weather'
+  patch '/weathers/:id', controller: 'weathers', action: 'update'
+
+  # DELETE
+  delete '/weathers/:id', controller: 'weathers', action: 'destroy'
+  #------------------------------
+
   # Routes for the Quote resource:
   # CREATE
   get '/quotes/new', controller: 'quotes', action: 'new', as: 'new_quote'

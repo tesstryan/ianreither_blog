@@ -7,6 +7,8 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'twitter', '~> 5.5.1'
 gem 'twitter-text', '~>1.7.0'
 
+gem "spotify", "~> 12.5.3"
+
 group :development do
   gem 'exportr'
 end 

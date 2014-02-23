@@ -14,7 +14,8 @@ class CharacteristicsController < ApplicationController
   def create
     @characteristic = Characteristic.new
     @characteristic.age = params[:age]
-    @characteristic.location = params[:location]
+    @characteristic.city = params[:city]
+    @characteristic.state = params[:state]   
     @characteristic.zip_code = params[:zip_code]
 
     if @characteristic.save
@@ -31,7 +32,8 @@ class CharacteristicsController < ApplicationController
   def update
     @characteristic = Characteristic.find_by(id: params[:id])
     @characteristic.age = params[:age]
-    @characteristic.location = params[:location]
+    @characteristic.city = params[:city]
+    @characteristic.state = params[:state]    
     @characteristic.zip_code = params[:zip_code]
 
     if @characteristic.save
@@ -47,4 +49,6 @@ class CharacteristicsController < ApplicationController
 
     redirect_to characteristics_url, notice: "Characteristic deleted."
   end
+
+  
 end

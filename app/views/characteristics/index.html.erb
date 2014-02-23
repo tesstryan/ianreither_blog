@@ -4,7 +4,8 @@
   <thead>
     <tr>
       <th>Age</th>
-      <th>Location</th>
+      <th>City</th>
+      <th>State</th>
       <th>Zip Code</th>
       <th></th>
       <th></th>
@@ -16,7 +17,8 @@
   <% @characteristics.each do |characteristic| %>
     <tr>
       <td><%= characteristic.age %></td>
-      <td><%= characteristic.location %></td>
+      <td><%= characteristic.city %></td>
+      <td><%= characteristic.state %></td>
       <td><%= characteristic.zip_code %></td>
       <% if session[:user_id].present? %>
         <td><%= link_to 'Edit', edit_characteristic_url(characteristic) %></td>
@@ -36,8 +38,13 @@
   </div>
 
   <div>
-    <%= label_tag :location %><br />
-    <%= text_field_tag :location %>
+    <%= label_tag :city %><br />
+    <%= text_field_tag :city%>
+  </div>
+
+  <div>
+    <%= label_tag :state %><br />
+    <%= text_field_tag :state %>
   </div>
 
     <div>
