@@ -8,9 +8,9 @@
 
       <div class="row">
         <div class="col-xs-12 col-md-3">
-          
+
           <ul class="about_ian">
-          
+
             <li><b>Age:</b> <%= @characteristic.age %></li>
 
             <li><b>Current Location:</b> <%= @characteristic.city %>, <%= @characteristic.state %></li>
@@ -19,16 +19,16 @@
                   <% characteristic_temp = Characteristic.last %>
                   <% @current_temp = characteristic_temp.get_current_temperature("#{@characteristic.city}", "#{@characteristic.state}") %>
             <li><b>Current <%= @characteristic.city %> Temp:</b> <%= @current_temp %>&deg;F</li>
-     
+
 
             <li><b>Most Recent Tweet:</b>
                 <% @tweet = @user.twitter.user_timeline.first.full_text %>
-                <% ian_tweet = @tweet.dup %> 
-                <%= auto_link(ian_tweet).html_safe %> 
+                <% ian_tweet = @tweet.dup %>
+                <%= auto_link(ian_tweet).html_safe %>
             </li>
 
             <li><b>Currently Reading:</b> <%= @book.title %> <em> by <%= @book.author %> </em> </li>
-            
+
             <li><b>Last song:</b> <%= @song.name %> <em> by <%= @song.artist %> </em></li>
 
             <li><b>Last Movie:</b> <%= @movie.title %> </li>
@@ -44,7 +44,7 @@
                 <div class="author"><%= @quote.author %></div>
             </li>
           </ul>
-          
+
           <ul class="about_ian">
             <h3><b>Contact</b></h3>
             <li>Email: <%= mail_to "ianreither@gmail.com", "ianreither@gmail.com" %></li>
@@ -87,16 +87,15 @@
                 <% end %>
                 <h6 class="date"><%= post.date %></h6>
                 <p><%= simple_format post.content %></p>
-                <% if session[:user_id].present? %> 
+                <% if session[:user_id].present? %>
                   <%= link_to 'Show', post_url(post) %> |
                   <%= link_to 'Edit', edit_post_url(post) %> |
                   <%= link_to 'Destroy', post_url(post), method: 'delete', data: { confirm: "Do you really want to delete this post?" } %>
                 <% end %>
-                <% end %>  
+                <% end %>
             </article>
-              
         </div>
-    
+
 
       <footer>
         <div class="footer">
