@@ -14,9 +14,7 @@
 
 
       <li><b>Most Recent Tweet:</b>
-          <% @tweet = @user.twitter.user_timeline.first.full_text %>
-          <% ian_tweet = @tweet.dup %>
-          <%= auto_link(ian_tweet).html_safe %>
+          <%= auto_link(@last_tweet).html_safe  %>
       </li>
 
       <li><b>Currently Reading:</b> <%= @book.title %> <em> by <%= @book.author %> </em> </li>
