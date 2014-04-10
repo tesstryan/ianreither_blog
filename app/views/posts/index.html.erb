@@ -7,11 +7,7 @@
 
       <li><b>Current Location:</b> <%= @characteristic.city %>, <%= @characteristic.state %></li>
 
-
-            <% characteristic_temp = Characteristic.last %>
-            <% @current_temp = characteristic_temp.get_current_temperature("#{@characteristic.city}", "#{@characteristic.state}") %>
       <li><b>Current <%= @characteristic.city %> Temp:</b> <%= @current_temp %>&deg;F</li>
-
 
       <li><b>Most Recent Tweet:</b>
           <%= auto_link(@last_tweet).html_safe  %>

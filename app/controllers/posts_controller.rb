@@ -9,6 +9,7 @@ class PostsController < ApplicationController
     @song = Song.last
     @user = User.last
     @characteristic = Characteristic.last
+    @current_temp = @characteristic.get_current_temperature("#{@characteristic.city}", "#{@characteristic.state}")
     @contact = Contact.last
     @article = Article.last
     @quote = Quote.last
