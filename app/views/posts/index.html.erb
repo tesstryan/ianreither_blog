@@ -56,20 +56,20 @@
       <article>
         <% @posts.order(:id).reverse.each do |post| %>
           <h2><%= post.header %>  </h2>
-          <% sub_header = post.sub_header %>
-          <% if sub_header.present? %>
-          <h3><%= post.sub_header %></h3>
-          <% end %>
-          <h6 class="date"><%= post.date %></h6>
-          <p><%= simple_format truncate(post.content, length: 500) { link_to " continue reading", post_url(post) } %></p>
-          <% if session[:user_id].present? %>
-            <%= link_to 'Show', post_url(post) %> |
-            <%= link_to 'Edit', edit_post_url(post) %> |
-            <%= link_to 'Destroy', post_url(post), method: 'delete', data: { confirm: "Do you really want to delete this post?" } %>
-          <% end %>
-          <% end %>
+            <% sub_header = post.sub_header %>
+            <% if sub_header.present? %>
+            <h3><%= post.sub_header %></h3>
+            <% end %>
+              <h6 class="date"><%= post.date %></h6>
+              <p><%= simple_format truncate(post.content, length: 500) { link_to " continue reading", post_url(post) } %></p>
+              <% if session[:user_id].present? %>
+                <%= link_to 'Show', post_url(post) %> |
+                <%= link_to 'Edit', edit_post_url(post) %> |
+                <%= link_to 'Destroy', post_url(post), method: 'delete', data: { confirm: "Do you really want to delete this post?" } %>
+              <% end %>
+        <% end %>
       </article>
-  </div>
+    </div>
 
 
 <footer>
