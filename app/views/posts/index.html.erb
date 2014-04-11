@@ -61,7 +61,7 @@
             <h3><%= post.sub_header %></h3>
             <% end %>
               <h6 class="date"><%= post.date %></h6>
-              <p><%= simple_format truncate(post.content, length: 500) { link_to " continue reading", post_url(post) } %></p>
+              <p><%= simple_format truncate(post.content, length: 500) { link_to raw(" continue reading &#8614;"), post_url(post) } %></p>
               <% if session[:user_id].present? %>
                 <%= link_to 'Show', post_url(post) %> |
                 <%= link_to 'Edit', edit_post_url(post) %> |
