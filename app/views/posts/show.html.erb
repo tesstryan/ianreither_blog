@@ -1,20 +1,20 @@
 <div class="container">
 
-<h1>Post #<%= @post.id %></h1>
+  <div class="col-md-1">
+  </div>
 
-<dl>
-  <dt>Header</dt>
-  <dd><%= @post.header %></dd>
+  <div class="col-xs-12 col-md-7 blog_posts">
+    <article>
+        <h2><%= @post.header %>  </h2>
+        <% sub_header = @post.sub_header %>
+        <% if sub_header.present? %>
+        <h3><%= @post.sub_header %></h3>
+        <% end %>
+        <h6 class="date"><%= @post.date %></h6>
+        <p><%= simple_format @post.content %></p>
 
-  <dt>Sub header</dt>
-  <dd><%= @post.sub_header %></dd>
-
-  <dt>Date</dt>
-  <dd><%= @post.date %></dd>
-
-  <dt>Content</dt>
-  <dd><%= @post.content %></dd>
-
-</dl>
+        <%= link_to "Back to Homepage", root_url %>
+    </article>
+  </div>
 
 </div>

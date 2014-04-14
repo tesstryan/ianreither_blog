@@ -1,111 +1,84 @@
-<body>
+<div class="row">
+  <div class="col-xs-12 col-md-3">
 
-    <header>
-      <div class="col-lg-12 header_image">
-        <%= image_tag("IanReither.png", :alt => "Ian Reither") %>
-      </div>
-    </header>
+    <ul class="about_ian">
+      <li><b>Age:</b> <%= @characteristic.age %></li>
+      <li><b>Current Location:</b> <%= @characteristic.city %>, <%= @characteristic.state %></li>
+      <li><b>Current <%= @characteristic.city %> Temp:</b> <%= @current_temp %>&deg;F</li>
+      <li><b>Most Recent Tweet: </b><%= auto_link(@last_tweet).html_safe  %></li>
+      <li><b>Currently Reading:</b> <%= @book.title %> <em> by <%= @book.author %> </em> </li>
+      <li><b>Last song:</b> <%= @song.name %> <em> by <%= @song.artist %> </em></li>
+      <li><b>Last Movie:</b> <%= @movie.title %> </li>
+      <li><b>Last Article:</b> <%= @article.name %> <em> by <%= @article.author %> </em> </li>
+    </ul>
 
-      <div class="row">
-        <div class="col-xs-12 col-md-3">
+     <ul class="about_ian">
+      <li>
+          <div class="quote"><i class="fa fa-quote-left icon_color"></i> <%= @quote.content %><i class="fa fa-quote-right icon_color"></i></div>
 
-          <ul class="about_ian">
+          <div class="arrow-down"></div>
+          <div class="author"><%= @quote.author %></div>
+      </li>
+    </ul>
 
-            <li><b>Age:</b> <%= @characteristic.age %></li>
+    <ul class="about_ian">
+      <h3><b>Contact</b></h3>
+      <li>Email: <%= mail_to "ianreither@gmail.com", "ianreither@gmail.com" %></li>
+      <li>Twitter: <a href="https://twitter.com/ireither"><%= @contact.twitter %></a></li>
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/ianreither"><%= @contact.linkedin %></a></li>
+      <li>AngelList: <a href="https://angel.co/ireither"><%= @contact.angel_list %></a></li>
+      <li>Quora: <a href="http://www.quora.com/Ian-Reither"><%= @contact.quora %></a></li>
+      <br>
+      <li><em>Opinions expressed on this site are my own.</em></li>
+     <!--  <br>
+      <i class="fa fa-bookmark fa-3x icon_symbol"></i>  -->
+      </ul>
 
-            <li><b>Current Location:</b> <%= @characteristic.city %>, <%= @characteristic.state %></li>
+      <ul class="edit_site">
+        <% if session[:user_id].present? %>
+          <li class="edit"><b>Edit the Site</b></li>
+          <li><%= link_to 'Add a New Post', new_post_url %></li>
+          <li><%= link_to 'Add a New Book', books_url %></li>
+          <li><%= link_to 'Add a New Movie', movies_url %></li>
+          <li><%= link_to 'Add a New Song', songs_url %></li>
+          <li><%= link_to 'Add a New Article/Blog', articles_url %></li>
+          <li><%= link_to 'Add a New Quote', quotes_url %></li>
+          <li><%= link_to 'Change Age or Location', characteristics_url %></li>
+        <% end %>
+      </ul>
 
+  </div>
 
-                  <% characteristic_temp = Characteristic.last %>
-                  <% @current_temp = characteristic_temp.get_current_temperature("#{@characteristic.city}", "#{@characteristic.state}") %>
-            <li><b>Current <%= @characteristic.city %> Temp:</b> <%= @current_temp %>&deg;F</li>
+  <div class="col-md-1">
+  </div>
 
-
-            <li><b>Most Recent Tweet:</b>
-                <% @tweet = @user.twitter.user_timeline.first.full_text %>
-                <% ian_tweet = @tweet.dup %>
-                <%= auto_link(ian_tweet).html_safe %>
-            </li>
-
-            <li><b>Currently Reading:</b> <%= @book.title %> <em> by <%= @book.author %> </em> </li>
-
-            <li><b>Last song:</b> <%= @song.name %> <em> by <%= @song.artist %> </em></li>
-
-            <li><b>Last Movie:</b> <%= @movie.title %> </li>
-
-            <li><b>Last Article:</b> <%= @article.name %> <em> by <%= @article.author %> </em> </li>
-           </ul>
-
-           <ul class="about_ian">
-            <li>
-                <div class="quote"><i class="fa fa-quote-left icon_color"></i> <%= @quote.content %><i class="fa fa-quote-right icon_color"></i></div>
-
-                <div class="arrow-down"></div>
-                <div class="author"><%= @quote.author %></div>
-            </li>
-          </ul>
-
-          <ul class="about_ian">
-            <h3><b>Contact</b></h3>
-            <li>Email: <%= mail_to "ianreither@gmail.com", "ianreither@gmail.com" %></li>
-            <li>Twitter: <a href="https://twitter.com/ireither"><%= @contact.twitter %></a></li>
-            <li>LinkedIn: <a href="https://www.linkedin.com/in/ianreither"><%= @contact.linkedin %></a></li>
-            <li>AngelList: <a href="https://angel.co/ireither"><%= @contact.angel_list %></a></li>
-            <li>Quora: <a href="http://www.quora.com/Ian-Reither"><%= @contact.quora %></a></li>
-            <br>
-            <li><em>Opinions expressed on this site are my own.</em></li>
-           <!--  <br>
-            <i class="fa fa-bookmark fa-3x icon_symbol"></i>  -->
-            </ul>
-
-            <ul class="edit_site">
-                <% if session[:user_id].present? %>
-                  <li class="edit"><b>Edit the Site</b></li>
-                  <li><%= link_to 'Add a New Post', new_post_url %></li>
-                  <li><%= link_to 'Add a New Book', books_url %></li>
-                  <li><%= link_to 'Add a New Movie', movies_url %></li>
-                  <li><%= link_to 'Add a New Song', songs_url %></li>
-                  <li><%= link_to 'Add a New Article/Blog', articles_url %></li>
-                  <li><%= link_to 'Add a New Quote', quotes_url %></li>
-                  <li><%= link_to 'Change Age or Location', characteristics_url %></li>
-
-                <% end %>
-            </ul>
-
-        </div>
-
-        <div class="col-md-1">
-        </div>
-
-          <div class="col-xs-12 col-md-7 blog_posts">
-            <article>
-              <% @posts.order(:id).reverse.each do |post| %>
-                <h2><%= post.header %>  </h2>
-                <% sub_header = post.sub_header %>
-                <% if sub_header.present? %>
-                <h3><%= post.sub_header %></h3>
-                <% end %>
-                <h6 class="date"><%= post.date %></h6>
-                <p><%= simple_format post.content %></p>
-                <% if session[:user_id].present? %>
-                  <%= link_to 'Show', post_url(post) %> |
-                  <%= link_to 'Edit', edit_post_url(post) %> |
-                  <%= link_to 'Destroy', post_url(post), method: 'delete', data: { confirm: "Do you really want to delete this post?" } %>
-                <% end %>
-                <% end %>
-            </article>
-        </div>
-
-
-      <footer>
-        <div class="footer">
-          <p></p>
-
-        </div>
-      </footer>
-
+    <div class="col-xs-12 col-md-7 blog_posts">
+      <article>
+        <% @posts.order(:id).reverse.each do |post| %>
+          <h2><%= post.header %>  </h2>
+            <% sub_header = post.sub_header %>
+            <% if sub_header.present? %>
+            <h3><%= post.sub_header %></h3>
+            <% end %>
+              <h6 class="date"><%= post.date %></h6>
+              <p><%= simple_format truncate(post.content, length: 500) { link_to raw(" continue reading &#8614;"), post_url(post) } %></p>
+              <% if session[:user_id].present? %>
+                <%= link_to 'Show', post_url(post) %> |
+                <%= link_to 'Edit', edit_post_url(post) %> |
+                <%= link_to 'Destroy', post_url(post), method: 'delete', data: { confirm: "Do you really want to delete this post?" } %>
+              <% end %>
+        <% end %>
+      </article>
     </div>
 
-</body>
-</html>
+
+<footer>
+  <div class="footer">
+    <p></p>
+  </div>
+</footer>
+
+</div>
+
+
 

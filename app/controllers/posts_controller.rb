@@ -3,11 +3,13 @@ class PostsController < ApplicationController
   def index
     @posts = Post.all
     @user = User.find_by(id: params[:id])
+    @last_tweet = User.find_by_id(1).no_link_tweet
     @book = Book.last
     @movie = Movie.last
     @song = Song.last
     @user = User.last
     @characteristic = Characteristic.last
+    @current_temp = @characteristic.get_current_temperature("#{@characteristic.city}", "#{@characteristic.state}")
     @contact = Contact.last
     @article = Article.last
     @quote = Quote.last
