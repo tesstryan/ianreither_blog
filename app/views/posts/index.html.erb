@@ -5,7 +5,7 @@
       <li><b>Age:</b> <%= @characteristic.age %></li>
       <li><b>Current Location:</b> <%= @characteristic.city %>, <%= @characteristic.state %></li>
       <li><b>Current <%= @characteristic.city %> Temp:</b> <%= @current_temp %>&deg;F</li>
-      <li><b>Most Recent Tweet:</b><%= auto_link(@last_tweet).html_safe  %></li>
+      <li><b>Most Recent Tweet: </b><%= auto_link(@last_tweet).html_safe  %></li>
       <li><b>Currently Reading:</b> <%= @book.title %> <em> by <%= @book.author %> </em> </li>
       <li><b>Last song:</b> <%= @song.name %> <em> by <%= @song.artist %> </em></li>
       <li><b>Last Movie:</b> <%= @movie.title %> </li>
