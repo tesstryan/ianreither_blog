@@ -9,9 +9,11 @@ gem 'twitter-text', '~>1.7.0'
 
 gem "spotify", "~> 12.5.3"
 
+gem "haml"
+
 group :development do
   gem 'exportr'
-end 
+end
 
 group :development do
   # Use sqlite3 as the database for Active Record
@@ -21,7 +23,7 @@ end
 group :production do
   gem 'pg'
   gem 'rails_12factor'
-end  
+end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.2'

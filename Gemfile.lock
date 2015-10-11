@@ -46,6 +46,8 @@ GEM
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.3)
+    haml (4.0.7)
+      tilt
     hike (1.2.3)
     http (0.5.0)
       http_parser.rb
@@ -154,6 +156,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.1.2)
   coffee-rails (~> 4.0.0)
   exportr
+  haml
   jbuilder (~> 1.2)
   jquery-rails
   pg
