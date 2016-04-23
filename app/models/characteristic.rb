@@ -5,7 +5,7 @@ require 'json'
 
 
 	def get_current_temperature(city, state)
-	  forecast_url = "http://api.openweathermap.org/data/2.5/weather?q=#{city},#{state}"
+	  forecast_url = "http://api.openweathermap.org/data/2.5/weather?q=#{city},#{state}&APPID=#{ENV['WEATHER_API_KEY']}"
 	  string_data = open(URI.encode(forecast_url)).read
 	  data = JSON.parse(string_data)
 
