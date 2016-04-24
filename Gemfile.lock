@@ -31,6 +31,8 @@ GEM
     bcrypt-ruby (3.1.2)
     buftok (0.2.0)
     builder (3.1.4)
+    byebug (5.0.0)
+      columnize (= 0.9.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -38,6 +40,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    columnize (0.9.0)
     descendants_tracker (0.0.3)
     equalizer (0.0.9)
     erubis (2.7.0)
@@ -154,6 +157,7 @@ PLATFORMS
 
 DEPENDENCIES
   bcrypt-ruby (~> 3.1.2)
+  byebug
   coffee-rails (~> 4.0.0)
   exportr
   haml

@@ -18,6 +18,7 @@ end
 group :development do
   # Use sqlite3 as the database for Active Record
   gem 'sqlite3'
+  gem 'byebug'
 end
 
 group :production do
