@@ -109,8 +109,8 @@ li {
 }
 
 .arrow-down {
-  width: 0; 
-  height: 0; 
+  width: 0;
+  height: 0;
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   border-top: 20px solid rgb(246,246,246);
@@ -122,7 +122,7 @@ li {
   margin-left: 16%;
   margin-bottom: 20px;
   font-size: 14px;
-  
+
 }
 
 .icon_color {
@@ -144,7 +144,7 @@ li {
     width: 600px;
     display: center;
   }
- 
+}
 
  @media screen and (max-width: 650px) {
 
@@ -224,7 +224,7 @@ li {
 
     .author {
       font-size: 11px;
-    }    
+    }
 
     .about_ian li {
       font-size: 11px;
@@ -255,4 +255,3 @@ li {
     }
 
 }
-
